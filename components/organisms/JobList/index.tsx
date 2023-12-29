@@ -1,9 +1,10 @@
-'use client';
 import { SearchInput } from '@/components/molecules';
 import { CardJob } from '@/components/molecules';
 import { Job, Company } from '@/models/contetful';
 import Link from 'next/link';
 import React, { useState } from 'react';
+
+// Add the missing import statement for SearchInput
 
 interface jobListProps {
   jobs: Job[];
@@ -18,7 +19,7 @@ const JobList: React.FC<jobListProps> = ({ jobs, companies }) => {
       <SearchInput jobs={jobs} setFilteredJobs={setFilteredJobs} />
       <div className="grid grid-cols-1 gap-x-3 gap-y-12 justify-items-center tablet:grid-cols-2 tablet-xl:grid-cols-3">
         {filteredJobs?.map((job: Job) => (
-          <Link key={job.sys.id} href={`/${job.fields.slug}`}>
+          <Link key={job.sys.id} href={`/${job.fields.company}`}>
             <CardJob
               companyName={job.fields.company.fields.name}
               contract={job.fields.contractType.fields.name}
