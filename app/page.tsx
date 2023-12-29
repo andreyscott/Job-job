@@ -1,57 +1,75 @@
+"use client";
+
+import React from "react";
 import jobListings from "@/data.json";
 import { JobList } from '@/components/organisms';
+import { Company, Job } from '@/models/contetful';
 
-// return the data from the data.json file and pass it to the JobList component as props.
+export default function Page() {
   
-
-
-
-
-
-
-
-
-
-
-
-
-export default async function Page() {
-  st [filteredJobs, setFilteredJobs] = useState<JobListingT[]>([]);
-  const [visibleJobs, setVisibleJobs] = useState<JobListingT[]>([]);
-
-  function getJobListingById(id: number): JobListingT | null {
-    return jobListings.find((job) => job.id === id) || null;
+  const getJobs = async () => {
+    const jobs = jobListings.map((job: { id: number; company: string; logo: string; logoBackground: string; position: string; postedAt: string; contract: string; location: string; website: string; apply: string; 
+      description: string; requirements:
+      { content: string; }; role: { content: string; }; }) => {
+      return {
+        id: job.id,
+        company: job.company,
+        logo: job.logo,
+        logoBackground: job.logoBackground,
+        position: job.position,
+        postedAt: job.postedAt,
+        contract: job.contract,
+        location: job.location,
+        website: job.website,
+        apply: job.apply,
+        description: job.description,
+        requirements: job.requirements,
+        role: job.role,
+      };
+ });    
+    return jobs;
   }
 
-  function incrementPage() {
-    setPagesVisible((prev) => prev + 1);
+  const getCompanies = async () => {
+    const companies = jobListings.map((job: { id: number; company: string; logo: string; logoBackground: string; position: string; postedAt: string; contract: string; location: string; website: string; apply: string; 
+      description: string; requirements:
+      { content: string; }; role: { content: string; }; }) => {
+      return {
+        id: job.id,
+        company: job.company,
+        logo: job.logo,
+        logoBackground: job.logoBackground,
+        position: job.position,
+        postedAt: job.postedAt,
+        contract: job.contract,
+        location: job.location,
+        website: job.website,
+        apply: job.apply,
+        description: job.description,
+        requirements: job.requirements,
+        role: job.role,
+      };
+    });
+
+
+    return companies;
   }
 
 
-  const jobs = jobListings.map((job) => {
-    return {
-      ...job,
-      company: jobListings.companies.find((company) => company.id === job.companyId),
-    };
-  }
   
-  cot companies = jobListings.companies;
-  
-  const jobs = jobListings.map((job) => {
-    return {
-      ...job,
-      company: jobListings.companies.find((company) => company.id === job.companyId),
-    };
-  }
-  
+   const jobsResponse: unknown =  getJobs();
+  const companiesResponse: unknown = getCompanies();
 
-  
+  const getJobType = (jobs: Job[]) => {
+    return jobs;
+  };
 
-  const jobs = ;
-  const companies = ;
+  const getCompanyType = (company: Company[]) => {
+    return company;
+  };
 
-
- 
+  const jobs = getJobType(jobsResponse as Job[]);
+  const companies = getCompanyType(companiesResponse as Company[]);
 
   if (!jobs || !companies) {
     return <p>Loading...</p>;
@@ -59,6 +77,7 @@ export default async function Page() {
 
   return (
     <>
+    <h1>Job Listings</h1>
       <JobList jobs={jobs} companies={companies} />
     </>
   );
