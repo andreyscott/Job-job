@@ -2,6 +2,7 @@
 
 import React, { FormEvent, SetStateAction } from "react";
 import { BsSearch } from "react-icons/bs";
+// import { FaTimes } from "react-icons/fa";
 
 interface FilterBarProps {
   filteredText: string;
@@ -16,7 +17,13 @@ export default function FilterBar(props: FilterBarProps) {
     setFilteredText(e.currentTarget.search.value);
   }
 
-  function clearFormText() {}
+  // write a function to clear the form text
+
+
+  function clearFormText() {
+    // clear the form text
+    setFilteredText("");
+  }
 
   return (
     <div className='flex justify-center relative'>

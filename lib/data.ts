@@ -524,4 +524,39 @@ export const jobPostData = [
       ],
     },
   },
+  // react dev job post data 
+  {
+    id: 16,
+    company: "Manage",
+    logo: "/manage.svg",
+    logoBackground: "hsl(0, 0%, 12%)",
+    position: "React Developer",
+    postedAt: "1mo ago",
+    contract: "Full Time",
+    location: "Singapore",
+    website: "https://example.com/manage",
+    apply: "https://example.com/manage/apply",
+    description:
+      "We are looking for a great JavaScript developer who is proficient with React.js. Your primary focus will be on developing user interface components and implementing them following well-known React.js workflows (such as Flux or Redux). You will ensure that these components and the overall application are robust and easy to maintain. You will coordinate with the rest of the team working on different layers of the infrastructure. Therefore, a commitment to collaborative problem solving, sophisticated design, and quality product is important.",
+    requirements: {
+      content:
+        "You will be responsible for writing and debugging your code while writing your own unit tests. We are looking for self-motivated developers who are interested in learning and can quickly pick up new technologies. We’re a relatively small team in a stable yet fast growing company and would love for you to join us.",
+      items: [
+        "Experience in JavaScript software development, preferably in a product company",
+        "Experience with React and state management libraries (such as Redux or Mobx)",
+        "Understand cross-browser compatibility issues and ways to work around them.",
+        "English language fluency, excellent communication skills",
+      ],
+    },
+    role: {
+      content:
+        "In this role, you are part of our Product team comprised of Frontend & Backend Developers, UX & UI Specialists and Product Owners. You'll work on mission critical projects from the first day on, support other engineers, share your knowledge with your colleagues, and contribute to agile projects.",
+      items: [
+        "Help define our software engineering culture",
+        "Write high quality software for the frontend",
+        "Do code reviews",
+        "Proactively solve the problems most important to the business",
+      ],
+    },    
+  },
 ] as const;
